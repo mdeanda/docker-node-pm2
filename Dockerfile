@@ -1,6 +1,6 @@
 FROM node:latest
 
-MAINTAINER Armagan Amcalar "armagan@amcalar.com"
+MAINTAINER Miguel De Anda "miguel@thedeanda.com"
 
 RUN npm install -g pm2@latest
 
@@ -9,5 +9,4 @@ ADD start /start
 RUN chmod 755 /start
 CMD ["/start"]
 
-EXPOSE 80
-EXPOSE 443
+EXPOSE 3000

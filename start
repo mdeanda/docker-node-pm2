@@ -1,8 +1,7 @@
 #!/bin/bash
 
-if [ -z "$APP" ]; then
-    export APP=app.js
-fi
+CLUSTER=${CLUSTER:-1}
+APP=${APP:-bin/www}
 
 cd /app
-pm2 start -x $APP --no-daemon
+pm2 start $APP -i $CLUSTER --no-daemon
