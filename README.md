@@ -4,10 +4,10 @@ The image will use `/app` folder as the place for the source code and the workin
 
     -v /path/to/app/source:/app
 
-Also, the executable (app entry js file) should be noted as the environment variable APP. The default value for APP variable is `app.js`.
+Also, the executable (app entry js file) should be noted as the environment variable APP. The default value for APP variable is `bin/www`.
 
-The container exposes 80 and 443 ports so you can bind to them.
+The container exposes 3000 ports so you can bind to them.
 
 So a complete command for running a node.js application with pm2 would be;
 
-    docker run -d -e "APP=app.js" -p 3000:80 -v /path/to/app/source:/app dashersw/node-pm2
+    docker run -d -e "CLUSTER=5" -p 80:3000 -v /path/to/app/source:/app dashersw/node-pm2
