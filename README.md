@@ -10,4 +10,4 @@ The container exposes 3000 ports so you can bind to them.
 
 So a complete command for running a node.js application with pm2 would be;
 
-    docker run -d -e "CLUSTER=5" -p 80:3000 -v /path/to/app/source:/app dashersw/node-pm2
+    docker run -d -e "CLUSTER=5" -e "APP=bin/www" -p 80:3000 -v /path/to/app/source:/app dashersw/node-pm2
