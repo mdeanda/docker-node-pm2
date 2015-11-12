@@ -6,8 +6,15 @@ The image will use `/app` folder as the place for the source code and the workin
 
 Also, the executable (app entry js file) should be noted as the environment variable APP. The default value for APP variable is `bin/www`.
 
-The container exposes 3000 ports so you can bind to them.
+To build the image locally you can run:
 
-So a complete command for running a node.js application with pm2 would be;
+    docker build --rm --no-cache -t mdeanda/node-pm2 https://github.com/mdeanda/docker-node-pm2.git
 
-    docker run -d -e "CLUSTER=5" -e "APP=bin/www" -p 80:3000 -v /path/to/app/source:/app dashersw/node-pm2
+To setup and run a sample node express application:
+
+    express nodetest
+    cd nodetest
+    npm install
+    docker run -it -e "CLUSTER=5" -e "APP=bin/www" -p 80:3000 -v `pwd`:/app mdeanda/node-pm2
+
+Then open up your browser to: http://localhost/
